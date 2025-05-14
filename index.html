@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eredan Arena Database</title>
+
+    <!-- External CSS for styling -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Eredan Arena Database</h1>
+      <p>Coming soon...</p>
+    </header>
+
+    <!-- Card selection options -->
+    <section id="selectors">
+      <label for="GuildSelector">Guild:</label>
+      <select id="GuildSelector"></select>
+
+      <label for="RaceSelector">Race:</label>
+      <select id="RaceSelector"></select>
+
+      <label for="ClassSelector">Class:</label>
+      <select id="ClassSelector"></select>
+
+      <label for="LevelSelector">Level:</label>
+      <select id="LevelSelector"></select>
+
+      <label for="TagSelector">Tag:</label>
+      <select id="TagSelector"></select>
+
+      <label for="searchBar">Search:</label>
+      <input type="text" id="searchBar" placeholder="Name or description..." />
+      <button type="button" id="searchButton" onclick="search()">Search</button>
+    </section>
+
+    <!-- Display the results -->
+    <section id="cardResults"></section>
+
+    <!-- JavaScript for handling the selection and search functionalities -->
+    <script src="./script.js"></script>
+  </body>
+</html>
