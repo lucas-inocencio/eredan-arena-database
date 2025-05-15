@@ -1,0 +1,1132 @@
+Absorb
+Description
+X
+ of the specified alteration and you gain 
+X
+ of that alteration for each of them
+.
+You gain even if they didn
+'t lose anything
+.
+Allergy Bouquet
+Description
+Passive
+.
+, the current 
+TOTAL DMG
+ you have been dealt is increased by 5
+%
+.
+(The damage caused ignores any alteration
+)
+Allure
+Description
+Negative Alteration
+.
+X
+ times you increase or obtain a positive alteration
+, half 
+(rounded up
+) of this increase
+/new alteration is given to your opponent instead
+. 
+(Only the increased part is considered if the card already has the alteration
+)
+This skill currently has a bug that when the holder gets an alteration with value 1
+, it is consumed but happens nothing
+.
+Alluring Skill
+Description
+, applies to the opponent 1 
+Allure
+.
+Angry Totem
+Description
+Passive
+. Neutral Alteration
+.
+Strength
+, your opponent
+'s increase by 20
+% of it for each Angry Totem you have
+.
+.
+This effect cannot trigger another totem
+.
+Arcane Barrier
+Description
+Positive Alteration
+. Shield
+-like
+.
+X
+ next DMG you suffer 
+(Normal and Shock DMG only
+)
+.
+, while you possess this alteration
+, everytime you receive a negative alteration
+, you inflict a 
+Shock 500
+ to your opponent
+, and every time you receive a positive alteration that isn
+'t 
+Arcane Barrier
+, you receive more 
+500 Arcane Barrier
+.
+Increasing alterations triggers the side effect too
+.
+Shock DMG is a DMG that cannot be altered by any alteration
+, but it cannot ignore shield
+-like skills
+.
+Aura
+Description
+Neutral Alteration
+. Passive
+.
+.
+Azure Tsunami
+Description
+At start of the combat
+:
+:blueDice
+: causes 1000 
+Pure DMG
+.
+% 
+(rounded up
+)
+.
+Pure DMG is a DMG that cannot be reduced by any alteration but still can be increased
+.
+Backstab
+Description
+X
+ Normal DMG to your opponent
+.
+X
+/2
+ Strength
+.
+Normal DMG is a DMG that can be altered by anything
+Barrage
+Description
+X
+ Normal DMG to your opponent
+.
+X
+/10 DMG
+-
+.
+Powder
+ your opponent has
+. Consumes his powders
+.
+Normal DMG is a DMG that can be altered by anything
+Berserk
+Description
+Positive alteration
+.
+, increases your 
+Strength
+ by 
+X
+.
+Flat DMG is a DMG that ignores every alteration from you and your opponent
+.
+Bleeding
+Description
+, you bleed
+, you will suffer 
+X
+ additional unmodifiable DMG each time you suffer DMG and this effect will increase by 50 each time you activate an ability
+.
+Blessed Seeds
+Description
+X
+ times you activate an ability
+, you receive 
+200 Lightroot
+.
+Blessing
+Description
+, you are healed by 
+X
+Blizzard
+Description
+Positive alteration
+.
+ Shield
+-like
+.
+X
+ next DMG you suffer 
+(Normal and Shock DMG only
+)
+.
+Blizzard
+ absorbs DMG
+, your opponent gets 
+1 Frost
+.
+Blue Gift
+Description
+, a gift opens and gives you one of the following 
+: Flow 400
+, Blizzard 800
+, DMG
++ 100
+, Dodge 1
+, Blessing 
+1
+0
+0
+.
+Brain Freeze
+Description
+ become 
+.
+Brave
+Description
+.
+Bulwark
+Description
+X
+ is reduced to 
+X
+.
+Burning Light
+Description
+, they cause a DMG to their opponents equals 35
+% of the Heal
+.
+Chain Lightning
+Description
+, it spreads it at 30
+% to its allies
+.
+Charged Skill
+Description
+1 Powder
+ or 
+100 Thunderstruck
+ on you
+.
+(Powder has priority if you have both
+.
+)
+Charts of Infinity
+Description
+Passive
+X
+ times you activate a skill
+, deal 2000 pure DMG and transfer one of your negative alterations to all your opponents
+.
+Pure DMG ignores any alteration that can reduce its value
+.
+The negative alteration is lost after the transfer
+.
+Chromatic Symphony
+Description
+, your opponent receives 500 
+Echo
+ for each of your unique dice pairs 
+( RR or BB or YY or SS 
+)
+.
+Cleaver of Athorg
+Description
+, your opponent receives 5 
+Ice malus
+ for every 
+Sword
+ you rolled
+.
+Cohesion
+Description
+, the value of your skills is increased by 10
+% for each of the specified allies
+.
+Constricting Skill
+Description
+, applies to the opponent as much 
+Constriction
+ as half of the skill value
+.
+Constriction
+Description
+Negative alteration
+.
+, suffer 
+X
+ DMG and all your negative alterations are increased by 10
+%
+.
+This alteration self
+-increases too
+.
+Corrupt
+Description
+.
+Craft
+Description
+.
+Crimson Death
+Description
+Bleeding
+, the 
+Strength
+ of all your heroes will be increased by a quarter of the value
+. 
+(This effect happens in all combats
+)
+Critical
+Description
+X
+ times you deal DMG
+, the DMG is doubled
+.
+Crush
+Description
+X
+ DMG to your opponent 
+(or
+X
+*
+1
+.5 of your Strength is superior to your opponents
+)
+.
+Curse
+Description
+Negative Alteration
+.
+, you are dealt 
+X DMG
+, 
++X
+/4
+ for each of your 
+Eclipse
+ maluses
+.
+'t be targeted by others skills trying reduce or remove it
+.
+Skills affecting all negative alterations still work on it
+.
+Cursed
+Description
+X
+/2 Curse to him
+.
+DMG Drain
+Description
+.
+DMG
++
+Description
+X
+.
+DMG
+-
+Description
+X
+.
+Dark Heritage
+Description
+'t have
+, their opponents receive 35 Terror
+.
+Death Stare
+Description
+X
+ DMG minus the Strength of your opponent that ignore all alterations that could reduce or prevent it
+.
+Defend The Borders
+Description
+, all your active Avalonians gain 1500 
+Shield 
+ and their 
+Strength
+ is increased by 
+1
+5
+0
+. 
+(Once per card
+)
+Deja vu
+Description
+.
+Devour
+Description
+, then consume half of one of your 
+positive alterations
+ to get X 
+Strength Bonus
+.
+Dexterity
+Description
+, Riposte or Critical
+, gain one of the other 2 at random
+.
+Dispel
+Description
+X
+ positive alteration
+(s
+) on your opponent
+.
+Dodge
+Description
+X
+ times you suffer DMG
+, it will be halved
+.
+Draconic Legacy
+Description
+Passive
+.
+DMG
++
+, your allies gain 
+500 Shield
+.
+Shield
+, your allies obtain 
+50 DMG
++
+.
+This effect considers increasing Shield and DMG
++ too
+Dragon Bite
+Description
+, it receives 
+X
+/10 Bleeding
+.
+Dragon Hide
+Description
+X
+ next times you are dealt DMG
+, they will be halved and your opponent will be dealt half
+.
+Earthquake
+Description
+, deal as much 
+Normal DMG
+ as your 
+base Strength
+ 
+(Maximum 600
+)
+.
+Eau de Corruption
+Description
+, your opponent gains as much Strength as 75
+% of the malus
+' value for each Eau de Corruption you have
+.
+This effect is applied to the opponent at start of the fight
+.
+Echo
+Description
+. Each time the opponents dice gets changed
+, by you or himself
+, he suffers a DMG equal the Echo on him
+. After skills activation phase the opponent suffers again a DMG equal to half of the Echo he owns
+.
+Eclipse
+Description
+X
+ next Heals of your opponent
+.
+Endurance
+Description
+, the damage is reduced by the value of your Strength
+.
+Eternal Winter
+Description
+Frostbite
+, the 
+Frostbite
+ is increased by 10
+%
+, and every time they deal a DMG from a Sword
+, their 
+Frostbite
+ is triggered again
+.
+Fire Rune
+Description
+X
+ Rune and the DMG that your opponent deals is decreased by
+X
+*
+2
+0
+. At the end of the opponent
+'s skill activation phase
+, each Rune deals 200 DMG
+.
+Fireball
+Description
+X
+ DMG to your opponent and he has DMG 
+-X
+/10
+.
+Flow
+Description
+, you 
+Heal
+ X
+.
+Flowering
+Description
+X
+ DMG and apply a Spore to you and your opponent
+.
+Focus X 
+-
+&gt; Y
+Description
+Y
+ as your 
+X
+.
+X
+ is divided by 
+2
+.
+Example
+: Focus Strength 
+-
+&gt; DMG
++
+Frenzy
+Description
+, 
+X
+ random dice that aren
+'t S become S
+.
+Frost
+Description
+, the Icy ability of your opponent will be increased by 
+X
+ tenth
+.
+Frostbite
+Description
+X
+ each time he activates an ability
+.
+Happy Totem
+Description
+Passive
+. Neutral Alteration
+.
+Strength
+, its value is increased by 20
+% for each Happy Totem you have
+.
+This effect cannot trigger another totem
+.
+Heal
+Description
+.
+Hit
+Description
+X
+ DMG
+.
+Icy
+Description
+. Your opponent gets 1 Frost
+.
+Illusion
+Description
+X
+ as its value
+. 
+(Except Smite and Physical Attack
+)
+Inspire
+Description
+.
+Invoke
+Description
+, transform into a more powerful form
+.
+Kiss of Oblivion
+Description
+.
+Life Drain
+Description
+X
+ DMG to your opponent and you gain 
+X
+ health points
+.
+Lightning
+Description
+X
+ DMG and increasing by 
+X
+/10
+ the next DMG he suffers
+.
+Lightning Rune
+Description
+X
+ Rune and increase the next DMG that your opponent suffers by
+X
+*
+2
+0
+. At the end of the skills activation phase
+, each Rune deals 200 DMG
+.
+Lightroots
+Description
+, your opponent will be hurt by X 
+Shock DMG
+ and you will be healed by X
+.
+This alteration cannot be targeted by other skills or alterations
+.
+Shock DMG is a DMG that cannot be increased and decreased
+, but still consumes skills as Scarab and Shield
+.
+Mad Hat
+Description
+, 
+copy
+ one of your opponents positive alteration for every 
+Sword
+ you rolled at start of combat
+.
+Magma Wall
+Description
+, they receive 5
+% of the total as DMG
+-
+.
+March of Conquest
+Description
+, increase all the DMG your opponent will be dealt by an amount equal to your 
+base Strength
+ 
+(Maximum 400
+)
+.
+Mediate
+Description
+, 
+ plus 2 other guilds
+, when any of the 3 guilds triggers the 1st effect
+, the current allies of the 2 other guilds receive the 2nd effect
+.
+*Example
+: if it is 
+Mediate 
+ 
+&amp; 
+ opp Ice 
+&gt; DMG
++ 25 
+, if a 
+ card applies 
+opp Ice
+ the 
+ and 
+ receive 
+DMG
++ 25
+.
+Meditation
+Description
+(if the value converted is 10 or lower
+) or 
++STR or 
++DMG 
+(if higher than 10
+)
+.
+Mend
+Description
+, you 
+Heal
+ X
+.
+Mimic
+Description
+X
+ DMG and copy a positive effect from the opponent 
+(stackable
+)
+.
+Mist
+Description
+(increase counts too
+) during the combat
+, this negative alteration is halved
+.
+Necrotic
+Description
+.
+Nefertoth
+Description
+Neutral Alteration
+. Passive
+.
+, for each of your 
+Nefertoth
+, deal as much pure DMG as your Strength
+.
+Pure DMG ignores every alteration from both in combat
+.
+Noble
+Description
+.
+Paper Scales
+Description
+DMG
+, you receive 15 
+Berserk
+.
+Parry
+Description
+X
+ next time you are dealt DMG
+, block them and deal as much DMG as your Strength
+.
+Physical Attack
+Description
+.
+Portal
+Description
+X
+ DMG and apply one of the negative effects on your hero to your opponent 
+(stackable
+)
+.
+Powder
+Description
+X
+ next time your suffer DMG from a S
+, a keg will explode and triple 
+(before modification
+) these DMG
+.
+Purify
+Description
+X
+ times half of a negative effect on your hero
+.
+Quest
+Description
+.
+Rage
+Description
+X
+ each time you deal DMG
+.
+Rain
+Description
+X
+ DMG and delete one of your negative alterations
+.
+Rain of Gifts
+Description
+, your cards obtain 1 Red Gift for each Red Dice rolled
+, 1 Blue Gift for each Blue Dice rolled
+, and 1 Yellow Gift for each Yellow Dice rolled
+.
+Rampage
+Description
+X
+ and you gain one Frenzy
+.
+Red Gift
+Description
+, a gift opens and gives you one of the following 
+: Strenght 
++100
+, Rage 50
+, Riposte 1
+, Stench 40
+, Shield 
+8
+0
+0
+.
+Resilience
+Description
+X
+.
+Restore
+Description
+Heal X
+. This effect is repeated for each other positive alteration you have
+.
+Restore doesn
+'t count itself in the repetition
+.
+Riposte
+Description
+X
+ next times you suffer DMG from a S you
+'ll deal as much DMG as your Strength
+.
+Round of Drinks
+Description
+X
+ times you receive a positive alteration
+, your 
+ allies receive 
+25
+%
+ as well and deal 
+2000 Shock DMG
+ to your opponent
+.
+Shock DMG is a DMG that cannot be reduced or increased
+, but still is affected by Scarab and Shield
+-like skills
+.
+Rune
+Description
+X
+ Runes
+. At the end of the Skills activation phase
+, each Rune deals 200 DMG
+.
+Runic
+Description
+. Your Runes are destroyed
+.
+Sacred
+Description
+.
+Scarab
+Description
+X
+ times you receive DMG
+, this DMG will be converted into Heal
+.
+Seek the Thunder
+'s Spear
+'
+Description
+Passive
+.
+:
+s
+w
+o
+r
+d
+D
+i
+c
+e
+:
+, strike your opponent with a 
+Lightning 1000
+.
+(Change 2 or more dices of same color at same time counts as 1 trigger only
+)
+Shield
+Description
+.
+Shield Bash
+Description
+X
+ DMG
+.
+Shieldbreaker
+Description
+(Shield
+, Blizzard or Arcane Barrier
+) removing it
+. Then you cause X DMG
+, plus the value of shield removed more half
+.
+Shock
+Description
+X
+ unmodifiable DMG
+.
+Sinister
+Description
+% for each opposing positive alteration
+.
+Smite
+Description
+'s Strength multiplied by 
+X
+.
+Smuggled
+Description
+(don
+'t need to be the same value
+)
+.
+Smuggler
+'s Treaty
+Description
+Passive
+.
+ receive any positive alteration
+, your 
+ on the field receive 25
+% of it 
+(rounded up
+)
+.
+ receive any positive alteration
+, your 
+ on the field receive 25
+% of it 
+(rounded up
+)
+.
+(This effect can be triggered only during the combat
+, so alterations obtained out of combat won
+'t be shared
+)
+Song of the Abysses
+Description
+, you are hurt by 
+750 Shock DMG
+, and one of your current opponent
+'s positive alteration is increased by 25
+% 
+(rounded up
+)
+Shock DMG is a DMG that cannot be reduced or increased
+, but still is affected by Scarab and Shield
+-like skills
+.
+This effect is applied on the opponent
+'s team
+.
+Spellbreaker
+Description
+[VALUE
+] DMG
+, delete half of a positive alteration on your opponent
+.
+Spoils of War
+Description
+, its current allies receive as much 
+Strength
+ as the defeated
+'s 
+base Strength
+, plus 
+1 Frenzy
+ and 
+1 Endurance
+.
+Spore
+Description
+, at each skill activation it grows
+. At the end of the skill activation phase deal 400 DMG for each of your Spores or Heal 400 DMG for each of your Spores if you are Dais
+.
+Stardust
+Description
+Positive Alteration
+X
+ times you receive a positive alteration
+, its value is increased by half 
+(only the received value
+)
+.  
+(Rounded up
+)
+Static Charge
+Description
+, who damaged it suffers a 
+pure
+ DMG equal half of the absortion and receives 10
+% of the absortion as Thunderstruck
+.
+Stench
+Description
+, your opponent loses 
+X
+ Strength each time you activate an ability
+.
+Storm
+Description
+, deal 
+X
+ DMG to your opponent and increase all the next DMG they take by 
+X
+/10 each time you activate an ability
+.
+Strength Drain
+Description
+'s Strength is reduced by 
+X
+ and your Strength increases by 
+X
+.
+Strength
++
+Description
+X
+.
+Strength
+-
+Description
+X
+ Strength
+.
+Support
+Description
+.
+Swarm of Decay
+Description
+Passive
+.
+.
+Symbiosis
+Description
+% of all buffs received between them
+.
+Talonstrike
+Description
+.
+Terror
+Description
+'s hero deals is reduced by 
+X
+ each time he activates an ability
+.
+(stackable
+)
+Thorn
+Description
+X
+ each time he deals DMG to you
+.
+Thunder of Guem
+Description
++
+, your opponent will receive a Thunderstruck equal half of its value multiplied by the Swords you rolled before the Skill Activation Phase
+.
+Thunderstruck
+Description
+X
+.
+Tidal Wave
+Description
+% 
+(rounded up
+) and deal 
+X
+ DMG
+.
+Time Loop
+Description
+X
+ in the skill sequence
+. This sequence counts skills from both in combat
+, and it counts any skill cast
+, so if the 2 first skills casts were your 1st ability
+, Time Loop 2 will replay it
+.
+.
+Transcendence
+Description
+: while throwing the dices
+, you can
+'t get S
+.
+Unified Skill
+Description
+% per each different race on your current cards in game
+.
+The race of your hero in combat is counted
+The skill value is increased by at least 25
+% and at max by 75
+%
+Verdant Growth
+Description
+, your Strength increases by 20
+% of the value
+.
+War Runes
+Description
+, you gain 
+1 Rune
+ for each 
+War Rune
+ you have
+.
+Wildfire
+Description
+, you inflict X 
+Fireball
+ to the opponent
+.
+Yellow Gift
+Description
+, a gift opens and gives you one of the following 
+: 1 Critical
+, Thorn 100
+, Mist 2
+, Berserk 50
+, Resilience 
+1
+0
+0
+.
+Transcendence
+Description
+: while throwing the dices
+, you can
+'t get S
+.
+Constricting Dragnet
+Description
+Neutral Alteration
+.
+Dragnets
+ activates a skill
+, he suffers 
+1500 flat DMG
+ and all his negative alterations are increased in 50
+%
+, if he does not have any
+, he receives 
+500 Constriction
+. Then 1 
+Dragnet
+ is consumed
+.
+Flat DMG is a DMG that ignores everything
+.
+Vigor
+Description
+Positive Alteration
+.
+, you get 
+X DMG
++
+.
+If you already have the DMG
++ alteration
+, 
+Vigor
+ does a 
+"flat
+" increase
+, not interacting with others effects
+.
