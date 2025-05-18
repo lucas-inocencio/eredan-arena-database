@@ -5,7 +5,7 @@
     <title>Eredan Arena Database</title>
 
     <!-- External CSS for styling -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
@@ -16,27 +16,98 @@
     <!-- Card selection options -->
     <section id="selectors">
       <label for="GuildSelector">Guild:</label>
-      <select id="GuildSelector"></select>
+      <select id="GuildSelector" name="options">
+        <option value="">All</option>
+        <option value="1">Avalonians</option>
+        <option value="2">Desert Nomads</option>
+        <option value="3">Equinoxians</option>
+        <option value="4">Kotoba</option>
+        <option value="5">Mercenaries</option>
+        <option value="6">Nehantists</option>
+        <option value="7">Noz Dingard Envoys</option>
+        <option value="8">Pirates</option>
+        <option value="9">Sap Hearts</option>
+        <option value="10">Stonelinkers</option>
+        <option value="11">Tempus</option>
+        <option value="12">The Council</option>
+        <option value="13">The Runic Legion</option>
+        <option value="14">Winter Tribes</option>
+        <option value="15">Zil Warriors</option>
+      </select>
+      <label for="ClassSelector">Class:</label>
+      <select id="ClassSelector" name="options">
+        <option value="">All</option>
+        <option value="1">Bard</option>
+        <option value="2">Berserker</option>
+        <option value="3">Captain</option>
+        <option value="4">Colossus</option>
+        <option value="5">Craftsman</option>
+        <option value="6">Mage</option>
+        <option value="7">Marauder</option>
+        <option value="8">Priest</option>
+        <option value="9">Protector</option>
+        <option value="10">Sidekick</option>
+        <option value="11">Warrior</option>
+        <option value="12">Unknown Class</option>
+      </select>
 
       <label for="RaceSelector">Race:</label>
-      <select id="RaceSelector"></select>
-
-      <label for="ClassSelector">Class:</label>
-      <select id="ClassSelector"></select>
+      <select id="RaceSelector" name="options">
+        <option value="">All</option>
+        <option value="1">Beast</option>
+        <option value="2">Dais</option>
+        <option value="3">Demon</option>
+        <option value="4">Dragon</option>
+        <option value="5">Elfine</option>
+        <option value="6">Eltarite</option>
+        <option value="7">Golem</option>
+        <option value="8">Guemelite</option>
+        <option value="9">Hom chai</option>
+        <option value="10">Human</option>
+        <option value="11">Ice Elf</option>
+        <option value="12">Naga</option>
+        <option value="13">Solarian</option>
+        <option value="14">Undead</option>
+        <option value="15">Unknown Race</option>
+      </select>
 
       <label for="LevelSelector">Level:</label>
-      <select id="LevelSelector"></select>
+      <select id="LevelSelector" name="options">
+        <option value="">All</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
 
-      <label for="TagSelector">Tag:</label>
-      <select id="TagSelector"></select>
+      <label for="RaritySelector">Rarity:</label>
+      <select id="RaritySelector" name="options">
+        <option value="">All</option>
+        <option value="1">Basic</option>
+        <option value="2">Exclusive</option>
+        <option value="3">Evolution</option>
+        <option value="4">Prime</option>
+        <option value="5">Special</option>
+      </select>
+
+      <label for="OrderBy">Date</label>
+      <select id="OrderBy" name="options">
+        <option value="">Date</option>
+        <option value="1">Id</option>
+        <option value="2">Name</option>
+      </select>
 
       <label for="searchBar">Search:</label>
-      <input type="text" id="searchBar" placeholder="Name or description..." />
+      <input type="text" id="searchBar" placeholder="" />
       <button type="button" id="searchButton" onclick="search()">Search</button>
     </section>
+    <h2>Card Results</h2>
 
     <!-- Display the results -->
-    <section id="cardResults"></section>
+    <section id="cardResults">
+      <div id="cardList">
+        <!-- Card results will be dynamically inserted here -->
+      </div>
+    </section>
 
     <!-- JavaScript for handling the selection and search functionalities -->
     <script src="./script.js"></script>
