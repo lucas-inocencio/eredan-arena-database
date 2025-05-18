@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Eredan Arena Database</title>
-
-    <!-- External CSS for styling -->
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -12,104 +10,90 @@
       <h1>Eredan Arena Database</h1>
       <p>Coming soon...</p>
     </header>
-
-    <!-- Card selection options -->
     <section id="selectors">
       <label for="GuildSelector">Guild:</label>
       <select id="GuildSelector" name="options">
-        <option value="">All</option>
-        <option value="1">Avalonians</option>
-        <option value="2">Desert Nomads</option>
-        <option value="3">Equinoxians</option>
-        <option value="4">Kotoba</option>
-        <option value="5">Mercenaries</option>
-        <option value="6">Nehantists</option>
-        <option value="7">Noz Dingard Envoys</option>
-        <option value="8">Pirates</option>
-        <option value="9">Sap Hearts</option>
-        <option value="10">Stonelinkers</option>
-        <option value="11">Tempus</option>
-        <option value="12">The Council</option>
-        <option value="13">The Runic Legion</option>
-        <option value="14">Winter Tribes</option>
-        <option value="15">Zil Warriors</option>
+        <option value="All">All</option>
+        <option value="Avalonians">Avalonians</option>
+        <option value="Desert Nomads">Desert Nomads</option>
+        <option value="Equinoxians">Equinoxians</option>
+        <option value="Kotoba">Kotoba</option>
+        <option value="Mercenaries">Mercenaries</option>
+        <option value="Nehantists">Nehantists</option>
+        <option value="Noz Dingard Envoys">Noz Dingard Envoys</option>
+        <option value="Pirates">Pirates</option>
+        <option value="Sap Hearts">Sap Hearts</option>
+        <option value="Stonelinkers">Stonelinkers</option>
+        <option value="Tempus">Tempus</option>
+        <option value="The Council">The Council</option>
+        <option value="The Runic Legion">The Runic Legion</option>
+        <option value="Winter Tribes">Winter Tribes</option>
+        <option value="Zil Warriors">Zil Warriors</option>
       </select>
       <label for="ClassSelector">Class:</label>
       <select id="ClassSelector" name="options">
-        <option value="">All</option>
-        <option value="1">Bard</option>
-        <option value="2">Berserker</option>
-        <option value="3">Captain</option>
-        <option value="4">Colossus</option>
-        <option value="5">Craftsman</option>
-        <option value="6">Mage</option>
-        <option value="7">Marauder</option>
-        <option value="8">Priest</option>
-        <option value="9">Protector</option>
-        <option value="10">Sidekick</option>
-        <option value="11">Warrior</option>
-        <option value="12">Unknown Class</option>
+        <option value="All">All</option>
+        <option value="Bard">Bard</option>
+        <option value="Berserker">Berserker</option>
+        <option value="Captain">Captain</option>
+        <option value="Colossus">Colossus</option>
+        <option value="Craftsman">Craftsman</option>
+        <option value="Mage">Mage</option>
+        <option value="Marauder">Marauder</option>
+        <option value="Priest">Priest</option>
+        <option value="Protector">Protector</option>
+        <option value="Sidekick">Sidekick</option>
+        <option value="Warrior">Warrior</option>
+        <option value="Unknown Class">Unknown Class</option>
       </select>
-
       <label for="RaceSelector">Race:</label>
       <select id="RaceSelector" name="options">
-        <option value="">All</option>
-        <option value="1">Beast</option>
-        <option value="2">Dais</option>
-        <option value="3">Demon</option>
-        <option value="4">Dragon</option>
-        <option value="5">Elfine</option>
-        <option value="6">Eltarite</option>
-        <option value="7">Golem</option>
-        <option value="8">Guemelite</option>
-        <option value="9">Hom chai</option>
-        <option value="10">Human</option>
-        <option value="11">Ice Elf</option>
-        <option value="12">Naga</option>
-        <option value="13">Solarian</option>
-        <option value="14">Undead</option>
-        <option value="15">Unknown Race</option>
+        <option value="All">All</option>
+        <option value="Beast">Beast</option>
+        <option value="Dais">Dais</option>
+        <option value="Demon">Demon</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Elfine">Elfine</option>
+        <option value="Eltarite">Eltarite</option>
+        <option value="Golem">Golem</option>
+        <option value="Guemelite">Guemelite</option>
+        <option value="Hom chai">Hom chai</option>
+        <option value="Human">Human</option>
+        <option value="Ice Elf">Ice Elf</option>
+        <option value="Naga">Naga</option>
+        <option value="Solarian">Solarian</option>
+        <option value="Undead">Undead</option>
+        <option value="Unknown Race">Unknown Race</option>
       </select>
-
       <label for="LevelSelector">Level:</label>
       <select id="LevelSelector" name="options">
-        <option value="">All</option>
+        <option value="All">All</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
-
       <label for="RaritySelector">Rarity:</label>
       <select id="RaritySelector" name="options">
-        <option value="">All</option>
-        <option value="1">Basic</option>
-        <option value="2">Exclusive</option>
-        <option value="3">Evolution</option>
-        <option value="4">Prime</option>
-        <option value="5">Special</option>
+        <option value="All">All</option>
+        <option value="Basic">Basic</option>
+        <option value="Exclusive">Exclusive</option>
+        <option value="Evolution">Evolution</option>
+        <option value="Prime">Prime</option>
+        <option value="Special">Special</option>
       </select>
-
-      <label for="OrderBy">Date</label>
+      <label for="OrderBy">Order by</label>
       <select id="OrderBy" name="options">
-        <option value="">Date</option>
-        <option value="1">Id</option>
-        <option value="2">Name</option>
+        <option value="Code">Code</option>
+        <option value="Date">Date</option>
+        <option value="Name">Name</option>
       </select>
-
-      <label for="searchBar">Search:</label>
-      <input type="text" id="searchBar" placeholder="" />
-      <button type="button" id="searchButton" onclick="search()">Search</button>
+      <label for="SearchBar">Search:</label>
+      <input type="text" id="SearchBar" placeholder="" />
+      <button type="button" id="SearchButton" onclick="search()">Search</button>
     </section>
     <h2>Card Results</h2>
 
-    <!-- Display the results -->
-    <section id="cardResults">
-      <div id="cardList">
-        <!-- Card results will be dynamically inserted here -->
-      </div>
-    </section>
-
-    <!-- JavaScript for handling the selection and search functionalities -->
+    <section id="cardResults"></section>
     <script src="./script.js"></script>
   </body>
 </html>
