@@ -1,3 +1,8 @@
-.venv/
+.venv
 *.png
 *.jpg
+.env
+eacards.json
+eaequips.json
+easkills.json
+node_modules
