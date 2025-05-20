@@ -12,6 +12,6 @@ run cells
 
 ### Website
 
-is hosted on github pages
-https://lucas-inocencio.github.io/eredan-arena-database/
+is hosted on render
+https://eredan-arena-database.onrender.com
 or use local Live Server
