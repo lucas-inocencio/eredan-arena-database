@@ -5,10 +5,7 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mydb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 // Schema and Model
 const User = mongoose.model('User', {
@@ -25,7 +22,9 @@ app.post('/users', async (req, res) => {
 
 app.listen(3000, () => console.log('Server running on port 3000'));
 
-const { MongoClient } = require('mongodb');
+
+
+/*const { MongoClient } = require('mongodb');
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
@@ -109,4 +108,4 @@ async function search() {
     } catch (err) {
         console.error(err);
     }
-}
+}*/
