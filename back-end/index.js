@@ -1,13 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import { MongoClient } from 'mongodb';
+
+dotenv.config();
+
 const app = express();
-const { MongoClient } = require('mongodb');
-require('dotenv').config();
+app.use(cors()); // Enable CORS for all routes
+
+// your routes
 
 const uri = process.env.MONGODB_URI
-if (!uri) {
-    throw new Error('MONGODB_URI environment variable is not set.');
-}
 const client = new MongoClient(uri);
 
 async function fetchCards() {
@@ -21,7 +24,7 @@ async function fetchCards() {
 }
 
 // endpoint to fetch cards
-app.get('/api/cards', async (req, res) => {
+app.get('/api/cards', async (_req, res) => {
     try {
         const cards = await fetchCards();
         res.json(cards);

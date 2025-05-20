@@ -23,6 +23,30 @@ const EredanArenaDatabase = () => {
     // You can call your API here using fetch or axios
   };
 
+  const [cards, setCards] = useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:5000/api/cards')
+      .then(async response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.indexOf('application/json') !== -1) {
+          return response.json();
+        } else {
+          throw new Error('Received non-JSON response from server');
+        }
+      })
+      .then(cards => {
+        console.log(cards);
+        setCards(cards);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+
   return (
     <div>
       <header>
@@ -97,13 +121,27 @@ const EredanArenaDatabase = () => {
 
         <button onClick={search}>Search</button>
       </section>
-
       <h2>Card Results</h2>
-      <section id="cardResults">
-        {/* Map over search results here */}
+      <section id="cardResults" className="cardResultsRow">
+        {cards.length === 0 ? (
+          <div>No cards found.</div>
+        ) : (
+          cards.map(card => (
+            <div className="cardResult" key={card.id || card.fullname}>
+              {card.imagelink ? (
+                <img src={card.imagelink} alt={card.fullname} style={{ maxWidth: '200px', height: 'auto' }} />
+              ) : (
+                <p>No image available.</p>
+              )}
+              <h3>{card.fullname}</h3>
+            </div>
+          ))
+        )}
       </section>
     </div>
   );
 };
+
+console.log('Eredan Arena Database component loaded');
 
 export default EredanArenaDatabase;

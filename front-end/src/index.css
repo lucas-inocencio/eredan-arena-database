@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ...existing code... */
+.cardResultsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cardResult {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  width: 220px;
+  box-sizing: border-box;
+  text-align: center;
+}
+/* ...existing code... */
