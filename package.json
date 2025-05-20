@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "mongodb": "^6.16.0"
+  },
+  "scripts": {
+    "start": "node script.js",
+    "build": "echo \"No build step defined\""
   }
 }
