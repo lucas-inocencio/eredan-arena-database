@@ -1,0 +1,24 @@
+{
+  "name": "eredan-arena-database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix back-end && npm install --prefix front-end && npm run build --prefix front-end",
+    "start": "npm run start --prefix back-end && npm run dev --prefix front-end",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-inocencio/eredana-arena-database.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas-inocencio/eredana-arena-database/issues"
+  },
+  "homepage": "https://github.com/lucas-inocencio/eredana-arena-database#readme",
+  "dependencies": {
+    "mongodb": "^6.13.0"
+  }
+}
