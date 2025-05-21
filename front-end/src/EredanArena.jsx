@@ -122,22 +122,38 @@ const EredanArena = () => {
     const matchesRace = filters.race === "All" || card.race === filters.race;
     const matchesRarity =
       filters.rarity === "All" || card.rarity === filters.rarity;
+    const matchesSearch =
+      card.fullname.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
+      card.skills.some((skill) =>
+        skill.toLowerCase().includes(filters.searchQuery.toLowerCase())
+      );
 
-    return matchesGuild && matchesClass && matchesRace && matchesRarity;
+    return (
+      matchesGuild &&
+      matchesClass &&
+      matchesRace &&
+      matchesRarity &&
+      matchesSearch
+    );
   });
 
   // Calculate results count based on level filter
   const resultsCount =
-    filteredCards.level === "All"
-      ? filteredCards.length * 3
-      : filteredCards.length;
+    filters.level === "All" ? filteredCards.length * 3 : filteredCards.length;
 
   return (
     <div>
       <header>
         <h1>Eredan Arena Database</h1>
-        {/*Display number of results*/}
+        {/* Display number of results */}
         <p>Results: {resultsCount}</p>
+        <input
+          type="text"
+          name="searchQuery"
+          placeholder="Search by name or description"
+          value={filters.searchQuery}
+          onChange={handleChange}
+        />
       </header>
       <section id="selectors">
         {renderSelect("guild", GUILDS)}
