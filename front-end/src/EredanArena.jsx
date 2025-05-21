@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import dotenv from "dotenv";
+dotenv.config();
 
 const GUILDS = [
   "All",
@@ -91,7 +93,7 @@ const EredanArena = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/cards")
+    fetch(`${process.env.MONGODB_URI}/api/cards`)
       .then(
         (response) =>
           response.headers.get("content-type").includes("json") &&

@@ -9,6 +9,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "echo \"No build step defined\""
+    "build": "npm install"
   }
 }

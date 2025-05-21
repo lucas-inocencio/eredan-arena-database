@@ -17,8 +17,14 @@
   "bugs": {
     "url": "https://github.com/lucas-inocencio/eredana-arena-database/issues"
   },
-  "homepage": "https://github.com/lucas-inocencio/eredana-arena-database#readme",
+  "homepage": "https://lucas-inocencio.github.io/eredan-arena-database/",
   "dependencies": {
-    "mongodb": "^6.13.0"
+    "gh-pages": "^6.3.0",
+    "mongodb": "^6.13.0",
+    "mongoose": "^7.5.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "react": "^18.2.0"
   }
 }
