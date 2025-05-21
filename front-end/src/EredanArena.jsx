@@ -92,11 +92,15 @@ const EredanArena = () => {
 
   useEffect(() => {
     fetch(`https://eredan-arena-database.onrender.com/api/cards`)
-      .then(
-        (response) =>
-          response.headers.get("content-type").includes("json") &&
-          response.json()
-      )
+      .then((response) => {
+        if (
+          response.ok &&
+          response.headers.get("content-type")?.includes("json")
+        ) {
+          return response.json();
+        }
+        throw new Error("Failed to fetch cards");
+      })
       .then(setCards)
       .catch(console.error);
   }, []);
