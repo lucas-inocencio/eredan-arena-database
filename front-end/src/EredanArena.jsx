@@ -93,7 +93,7 @@ const EredanArena = () => {
   );
 
   useEffect(() => {
-    fetch(`${process.env.MONGODB_URI}/api/cards`)
+    fetch(`${process.env.HOST}/api/cards`)
       .then(
         (response) =>
           response.headers.get("content-type").includes("json") &&
