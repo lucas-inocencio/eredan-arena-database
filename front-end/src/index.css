@@ -12,14 +12,14 @@ code {
     monospace;
 }
 
-/* ...existing code... */
-.cardResultsRow {
+.cardResults {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: flex-start;
   align-items: flex-start;
 }
+
 
 .cardResult {
   background: #f8f8f8;
@@ -30,4 +30,11 @@ code {
   box-sizing: border-box;
   text-align: center;
 }
-/* ...existing code... */
+
+#selectors {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}

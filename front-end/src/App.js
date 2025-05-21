@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import EredanArenaDatabase from './EredanArenaDatabase';
+import EredanArena from './EredanArena';
 import './styles.css';
 
 function App() {
   return (
     <div className="App">
-      <EredanArenaDatabase />
+      <EredanArena />
     </div>
   );
 }
