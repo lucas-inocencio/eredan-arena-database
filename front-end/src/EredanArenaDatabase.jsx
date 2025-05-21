@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const EredanArenaDatabase = () => {
   const [filters, setFilters] = useState({
@@ -7,9 +7,31 @@ const EredanArenaDatabase = () => {
     race: 'All',
     level: 'All',
     rarity: 'All',
-    orderBy: 'ReleaseDate',
+    orderBy: 'Name',
     searchQuery: ''
   });
+
+  const [cards, setCards] = useState([]);
+
+  // Set filters from URL params on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const newFilters = { ...filters };
+    for (const key of Object.keys(newFilters)) {
+      if (params.has(key)) {
+        newFilters[key] = params.get(key);
+      }
+    }
+    if (params.has('search')) {
+      newFilters.searchQuery = params.get('search');
+    }
+    setFilters(newFilters);
+    // Optionally, trigger search immediately if params exist
+    if ([...params.keys()].length > 0) {
+      search(newFilters);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = (e) => {
     setFilters({
@@ -18,14 +40,40 @@ const EredanArenaDatabase = () => {
     });
   };
 
-  const search = () => {
-    console.log('Searching with filters:', filters);
-    // You can call your API here using fetch or axios
+  // Accept optional argument for initial search
+  const search = (customFilters) => {
+    const activeFilters = customFilters || filters;
+    const params = new URLSearchParams();
+    ['guild', 'class', 'race', 'level', 'rarity', 'orderBy'].forEach(key => {
+      if (activeFilters[key] && activeFilters[key] !== 'All') {
+        params.append(key, activeFilters[key]);
+      }
+    });
+    if (activeFilters.searchQuery) {
+      params.append('search', activeFilters.searchQuery);
+    }
+    fetch(`http://localhost:5000/api/cards?${params.toString()}`)
+      .then(async response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.indexOf('application/json') !== -1) {
+          return response.json();
+        } else {
+          throw new Error('Received non-JSON response from server');
+        }
+      })
+      .then(cards => {
+        setCards(cards);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
-  const [cards, setCards] = useState([]);
-
-  React.useEffect(() => {
+  useEffect(() => {
+    // Initial fetch (all cards)
     fetch('http://localhost:5000/api/cards')
       .then(async response => {
         if (!response.ok) {
@@ -39,13 +87,19 @@ const EredanArenaDatabase = () => {
         }
       })
       .then(cards => {
-        console.log(cards);
         setCards(cards);
       })
       .catch(error => {
         console.error('Error:', error);
       });
   }, []);
+
+  // Sort cards by fullname before rendering
+  const sortedCards = [...cards].sort((a, b) => {
+    if (!a.fullname) return 1;
+    if (!b.fullname) return -1;
+    return a.fullname.localeCompare(b.fullname);
+  });
 
   return (
     <div>
@@ -103,7 +157,7 @@ const EredanArenaDatabase = () => {
         <label>
           Order by:
           <select name="orderBy" value={filters.orderBy} onChange={handleChange}>
-            {['ReleaseDate', 'Name'].map(opt => (
+            {['Name', 'ReleaseDate'].map(opt => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
           </select>
@@ -123,10 +177,10 @@ const EredanArenaDatabase = () => {
       </section>
       <h2>Card Results</h2>
       <section id="cardResults" className="cardResultsRow">
-        {cards.length === 0 ? (
+        {sortedCards.length === 0 ? (
           <div>No cards found.</div>
         ) : (
-          cards.map(card => (
+          sortedCards.map(card => (
             <div className="cardResult" key={card.id || card.fullname}>
               {card.imagelink ? (
                 <img src={card.imagelink} alt={card.fullname} style={{ maxWidth: '200px', height: 'auto' }} />
@@ -142,6 +196,5 @@ const EredanArenaDatabase = () => {
   );
 };
 
-console.log('Eredan Arena Database component loaded');
 
 export default EredanArenaDatabase;
