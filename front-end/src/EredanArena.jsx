@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import dotenv from "dotenv";
-dotenv.config();
 
 const GUILDS = [
   "All",
@@ -93,7 +91,7 @@ const EredanArena = () => {
   );
 
   useEffect(() => {
-    fetch(`${process.env.HOST}/api/cards`)
+    fetch(`https://eredan-arena-database.onrender.com/api/cards`)
       .then(
         (response) =>
           response.headers.get("content-type").includes("json") &&
