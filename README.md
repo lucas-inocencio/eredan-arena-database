@@ -2,6 +2,14 @@
 
 A database and web interface for Eredan Arena cards and stats.
 
+## Website
+
+The website is hosted on [Render](https://render.com/) and [Vercel](https://vercel.com/).
+Access the live website here:
+[https://eredan-arena-database-nhcw.vercel.app/](https://eredan-arena-database-nhcw.vercel.app/)
+
+Alternatively, you can run the website locally using Node.js.
+
 ## Getting Started
 
 ## Stack
@@ -36,16 +44,6 @@ pip install -r requirements.txt
 ### 3. Run Jupyter Notebook Cells
 
 Open your preferred Jupyter environment and run the notebook cells as needed.
-
----
-
-## Website
-
-The website is hosted on [Render](https://render.com/) and [Vercel](https://vercel.com/).
-Access the live website here:
-[https://eredan-arena-database-nhcw.vercel.app/](https://eredan-arena-database-nhcw.vercel.app/)
-
-Alternatively, you can run the website locally using Node.js.
 
 ### Local Development
 

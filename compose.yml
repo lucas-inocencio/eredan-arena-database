@@ -1,0 +1,19 @@
+services:
+  frontend:
+    build:
+      context: ./front-end
+    image: node:latest
+    ports:
+      - "3000:3000"
+    command: npm start
+    volumes:
+      - ./front-end:/app
+  backend:
+    build:
+      context: ./back-end
+    image: node:latest
+    ports:
+      - "5000:5000"
+    command: npm start
+    volumes:
+      - ./back-end:/app
