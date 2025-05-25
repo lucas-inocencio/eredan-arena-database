@@ -23,6 +23,10 @@ async function fetchCards() {
     return documents;
 }
 
+app.get('/', (_req, res) => {
+    res.send('So vamos trabalhar com o endpoint /api/cards');
+});
+
 // endpoint to fetch cards
 app.get('/api/cards', async (_req, res) => {
     try {
