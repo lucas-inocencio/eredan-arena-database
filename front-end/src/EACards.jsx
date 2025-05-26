@@ -51,7 +51,7 @@ const RACES = [
   "Undead",
   "Unknown",
 ];
-const LEVELS = ["All", "1", "2", "3"];
+//const LEVELS = ["All", "1", "2", "3"];
 const RARITIES = [
   "All",
   "Basic",
@@ -64,12 +64,12 @@ const RARITIES = [
 ];
 const ORDER_BY = ["Name", "ReleaseDate"];
 
-const EredanArena = () => {
+const EACards = () => {
   const [filters, setFilters] = useState({
     guild: "All",
     class: "All",
     race: "All",
-    level: "All",
+    //level: "All",
     rarity: "All",
     orderBy: "Name",
     searchQuery: "",
@@ -141,6 +141,15 @@ const EredanArena = () => {
   const resultsCount =
     filters.level === "All" ? filteredCards.length * 3 : filteredCards.length;
 
+  const [cardImageLevels, setCardImageLevels] = useState({});
+
+  const handleLevelClick = (cardId, level) => {
+    setCardImageLevels((prev) => ({
+      ...prev,
+      [cardId]: level,
+    }));
+  };
+
   return (
     <div>
       <header>
@@ -155,90 +164,60 @@ const EredanArena = () => {
           onChange={handleChange}
         />
       </header>
-      <section id="selectors">
+      <section className="selectors">
         {renderSelect("guild", GUILDS)}
         {renderSelect("class", CLASSES)}
         {renderSelect("race", RACES)}
-        {renderSelect("level", LEVELS)}
+        {/*renderSelect("level", LEVELS)*/}
         {renderSelect("rarity", RARITIES)}
         {renderSelect("orderBy", ORDER_BY)}
       </section>
       <h2>Card Results</h2>
-      <section id="cardResults" className="cardResults">
+      <section className="cardResults">
         {filteredCards.length === 0 ? (
           <div>No cards found.</div>
         ) : (
-          filteredCards.map((card) => (
-            <div className="cardResult" key={card.id}>
-              {(() => {
-                if (filters.level === "1") {
-                  return card.imagelink ? (
-                    <>
-                      <img
-                        src={card.lvlone}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available.</p>
-                  );
-                } else if (filters.level === "2") {
-                  return card.imagelink ? (
-                    <>
-                      <img
-                        src={card.lvltwo}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available.</p>
-                  );
-                } else if (filters.level === "3") {
-                  return card.imagelink ? (
-                    <>
-                      <img
-                        src={card.imagelink}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available.</p>
-                  );
-                } else {
-                  return card.imagelink ? (
-                    <>
-                      <img
-                        src={card.lvlone}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                      <h3>{card.fullname}</h3>
-                      <img
-                        src={card.lvltwo}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                      <h3>{card.fullname}</h3>
-                      <img
-                        src={card.imagelink}
-                        alt={card.fullname}
-                        style={{ maxWidth: 200, height: "auto" }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available.</p>
-                  );
-                }
-              })()}
-              <h3>{card.fullname}</h3>
-            </div>
-          ))
+          filteredCards.map((card) => {
+            let imgSrc = card.imagelink;
+            if (cardImageLevels[card.id] === 1 && card.lvlone)
+              imgSrc = card.lvlone;
+            if (cardImageLevels[card.id] === 2 && card.lvltwo)
+              imgSrc = card.lvltwo;
+            if (cardImageLevels[card.id] === 3 && card.imagelink)
+              imgSrc = card.imagelink;
+            return (
+              <div className="cardResult" key={card.id}>
+                {imgSrc ? (
+                  <>
+                    <img
+                      src={imgSrc}
+                      alt={card.fullname}
+                      style={{ maxWidth: 200, height: "auto" }}
+                    />
+                    <div className="levelButtons" style={{ marginTop: 8 }}>
+                      <p>Lvl</p>
+                      <button onClick={() => handleLevelClick(card.id, 1)}>
+                        1
+                      </button>
+                      <button onClick={() => handleLevelClick(card.id, 2)}>
+                        2
+                      </button>
+                      <button onClick={() => handleLevelClick(card.id, 3)}>
+                        3
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <p>No image available.</p>
+                )}
+                <h3>{card.fullname}</h3>
+              </div>
+            );
+          })
         )}
       </section>
     </div>
   );
 };
-export default EredanArena;
+
+export default EACards;
