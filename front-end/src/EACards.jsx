@@ -151,7 +151,7 @@ const EACards = () => {
   };
 
   return (
-    <div>
+    <div className="EACards">
       <header>
         <h1>Eredan Arena Database</h1>
         {/* Display number of results */}
