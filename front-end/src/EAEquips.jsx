@@ -29,7 +29,7 @@ const EAEquips = () => {
   );
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/equips`)
+    fetch(`https://eredan-arena-database.onrender.com/api/equips`)
       .then((response) => {
         if (
           response.ok &&

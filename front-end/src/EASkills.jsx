@@ -35,7 +35,7 @@ const EASkills = () => {
   );
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/skills`)
+    fetch(`https://eredan-arena-database.onrender.com/api/skills`)
       .then((response) => {
         if (
           response.ok &&
