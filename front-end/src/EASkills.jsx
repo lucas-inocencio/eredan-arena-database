@@ -58,6 +58,7 @@ const EASkills = () => {
   });
 
   const filteredSkills = sortedSkills.filter((card) => {
+    console.log(card.style, filters.style);
     const matchesStyle =
       filters.style === "All" || card.style === filters.style;
     const matchesSearch =
@@ -82,7 +83,7 @@ const EASkills = () => {
           onChange={handleChange}
         />
       </header>
-      <section className="selectors">{renderSelect("styles", STYLES)}</section>
+      <section className="selectors">{renderSelect("style", STYLES)}</section>
       <h2>Skill Results</h2>
       <section className="cardResults">
         {filteredSkills.length === 0 ? (

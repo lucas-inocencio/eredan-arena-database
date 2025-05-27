@@ -19,8 +19,8 @@ const EAEquips = () => {
     <label>
       {name.charAt(0).toUpperCase() + name.slice(1)}:
       <select name={name} value={filters[name]} onChange={handleChange}>
-        {options.map((opt) => (
-          <option key={opt} value={opt}>
+        {options.map((opt, idx) => (
+          <option key={`${name}-${opt}-${idx}`} value={opt}>
             {opt}
           </option>
         ))}
@@ -45,7 +45,7 @@ const EAEquips = () => {
 
   const sortedEquips = [...equips].sort((a, b) => {
     if (filters.orderBy === "ReleaseDate") {
-      return new Date(a.releasedate) - new Date(b.releasedate);
+      return new Date(a.lastpatch) - new Date(b.lastpatch);
     } else {
       return a.fullname.localeCompare(b.fullname);
     }
@@ -79,7 +79,7 @@ const EAEquips = () => {
         />
       </header>
       <section className="selectors">
-        {renderSelect("positions", POSITIONS)}
+        {renderSelect("position", POSITIONS)}
         {renderSelect("rarity", RARITIES)}
         {renderSelect("orderBy", ORDER_BY)}
       </section>
