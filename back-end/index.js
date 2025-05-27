@@ -25,7 +25,7 @@ const fetchEquips = () => fetchCollection('eaequips');
 const fetchSkills = () => fetchCollection('easkills');
 
 app.get('/', (_req, res) => {
-    res.send('So vamos trabalhar com o endpoint /api/cards');
+    res.send('So vamos trabalhar com os endpoints /api/cards, /api/equips e /api/skills');
 });
 
 // endpoint to fetch cards
