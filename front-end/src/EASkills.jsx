@@ -58,7 +58,6 @@ const EASkills = () => {
   });
 
   const filteredSkills = sortedSkills.filter((card) => {
-    console.log(card.style, filters.style);
     const matchesStyle =
       filters.style === "All" || card.style === filters.style;
     const matchesSearch =
@@ -71,7 +70,7 @@ const EASkills = () => {
   });
 
   return (
-    <div>
+    <div className="EA">
       <header>
         <h1>Eredan Arena Database</h1>
         <p>Results: {filteredSkills.length}</p>

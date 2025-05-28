@@ -17,6 +17,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<EACards />} />
           <Route path="cards" element={<EACards />} />
           <Route path="equips" element={<EAEquips />} />
           <Route path="skills" element={<EASkills />} />

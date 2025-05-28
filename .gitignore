@@ -1,9 +1,5 @@
 .venv
 *.png
-*.jpg
 .env
-eacards.json
-eaequips.json
-easkills.json
-cards.json
+*.ipynb
 node_modules

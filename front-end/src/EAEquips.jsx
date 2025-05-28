@@ -66,7 +66,7 @@ const EAEquips = () => {
   });
 
   return (
-    <div>
+    <div className="EA">
       <header>
         <h1>Eredan Arena Database</h1>
         <p>Results: {filteredEquips.length}</p>

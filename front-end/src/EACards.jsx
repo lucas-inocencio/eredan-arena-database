@@ -51,7 +51,6 @@ const RACES = [
   "Undead",
   "Unknown",
 ];
-//const LEVELS = ["All", "1", "2", "3"];
 const RARITIES = [
   "All",
   "Basic",
@@ -69,7 +68,6 @@ const EACards = () => {
     guild: "All",
     class: "All",
     race: "All",
-    //level: "All",
     rarity: "All",
     orderBy: "Name",
     searchQuery: "",
@@ -113,7 +111,6 @@ const EACards = () => {
     }
   });
 
-  // Filter cards based on selected filters
   const filteredCards = sortedCards.filter((card) => {
     const matchesGuild =
       filters.guild === "All" || card.guild === filters.guild;
@@ -137,10 +134,6 @@ const EACards = () => {
     );
   });
 
-  // Calculate results count based on level filter
-  const resultsCount =
-    filters.level === "All" ? filteredCards.length * 3 : filteredCards.length;
-
   const [cardImageLevels, setCardImageLevels] = useState({});
 
   const handleLevelClick = (cardId, level) => {
@@ -151,11 +144,10 @@ const EACards = () => {
   };
 
   return (
-    <div className="EACards">
+    <div className="EA">
       <header>
         <h1>Eredan Arena Database</h1>
-        {/* Display number of results */}
-        <p>Results: {resultsCount}</p>
+        <p>Results: {filteredCards.length}</p>
         <input
           type="text"
           name="searchQuery"
@@ -168,7 +160,6 @@ const EACards = () => {
         {renderSelect("guild", GUILDS)}
         {renderSelect("class", CLASSES)}
         {renderSelect("race", RACES)}
-        {/*renderSelect("level", LEVELS)*/}
         {renderSelect("rarity", RARITIES)}
         {renderSelect("orderBy", ORDER_BY)}
       </section>
@@ -190,11 +181,11 @@ const EACards = () => {
                 {imgSrc ? (
                   <>
                     <img
+                      className="cardImage"
                       src={imgSrc}
                       alt={card.fullname}
-                      style={{ maxWidth: 200, height: "auto" }}
                     />
-                    <div className="levelButtons" style={{ marginTop: 8 }}>
+                    <div className="levelButtons">
                       <p>Lvl</p>
                       <button onClick={() => handleLevelClick(card.id, 1)}>
                         1
