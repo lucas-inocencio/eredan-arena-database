@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
 
-import EACards from "./EACards";
-import EAEquips from "./EAEquips";
-import EASkills from "./EASkills";
+import EACards from "./pages/EACards";
+import EAEquips from "./pages/EAEquips";
+import EASkills from "./pages/EASkills";
 
 import "./styles.css";
 import "./App.css";

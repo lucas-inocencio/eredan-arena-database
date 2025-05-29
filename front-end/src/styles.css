@@ -13,6 +13,7 @@
   border-radius: 8px;
   padding: 12px;
   width: 150px;
+  height: auto;
   box-sizing: border-box;
   text-align: center;
 }
@@ -78,4 +79,8 @@ li {
   float: left;
   list-style: none;
   margin: 0 8px;
+}
+
+.cardImage:hover {
+  transform: scale(2);
 }

@@ -91,11 +91,7 @@ const EASkills = () => {
           filteredSkills.map((card) => (
             <div className="cardResult" key={card.id}>
               {card.skillImage ? (
-                <img
-                  src={card.skillImage}
-                  alt={card.fullname}
-                  style={{ maxWidth: 200, height: "auto" }}
-                />
+                <img src={card.skillImage} alt={card.fullname} />
               ) : (
                 <p>No image available.</p>
               )}
