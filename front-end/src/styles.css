@@ -12,7 +12,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 12px;
-  width: 195px;
+  width: 175px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -20,6 +20,7 @@
 .selectors {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
