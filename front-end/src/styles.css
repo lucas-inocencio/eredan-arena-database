@@ -8,11 +8,11 @@
 
 
 .cardResult {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
+  /*background: #f8f8f8;
+  border: 1px solid #ddd;*/
   border-radius: 8px;
   padding: 12px;
-  width: 175px;
+  width: 150px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -60,4 +60,22 @@ header {
   border-radius: 8px;
   max-width: 200px;
   height: auto
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+li {
+  float: left;
+  list-style: none;
+  margin: 0 8px;
 }
