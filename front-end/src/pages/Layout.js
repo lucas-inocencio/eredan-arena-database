@@ -8,6 +8,19 @@ const Layout = () => {
     document.body.className = darkMode ? "dark-mode" : "";
   }, [darkMode]);
 
+  // Automatically set dark mode based on user's system preference
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setDarkMode(mediaQuery.matches);
+
+    const handleChange = (e) => setDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
   return (
     <>
       <nav>
