@@ -61,7 +61,13 @@ const RARITIES = [
   "Special",
   "Survival",
 ];
-const ORDER_BY = ["Name", "ReleaseDate"];
+
+const ORDER_BY = [
+  "Name A-Z",
+  "Name Z-A",
+  "ReleaseDate Recent → Old",
+  "ReleaseDate Old → Recent",
+];
 
 const EACards = () => {
   const [filters, setFilters] = useState({
@@ -104,10 +110,15 @@ const EACards = () => {
   }, []);
 
   const sortedCards = [...cards].sort((a, b) => {
-    if (filters.orderBy === "ReleaseDate") {
-      return new Date(a.releasedate) - new Date(b.releasedate);
-    } else {
-      return a.fullname.localeCompare(b.fullname);
+    switch (filters.orderBy) {
+      case "Name Z-A":
+        return b.fullname.localeCompare(a.fullname);
+      case "ReleaseDate Recent → Old":
+        return new Date(b.release) - new Date(a.release);
+      case "ReleaseDate Old → Recent":
+        return new Date(a.release) - new Date(b.release);
+      default: // "Name A-Z"
+        return a.fullname.localeCompare(b.fullname);
     }
   });
 
