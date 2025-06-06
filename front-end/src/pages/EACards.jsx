@@ -63,10 +63,10 @@ const RARITIES = [
 ];
 
 const ORDER_BY = [
-  "Name A-Z",
-  "Name Z-A",
-  "ReleaseDate Recent → Old",
-  "ReleaseDate Old → Recent",
+  "Name (A > Z)",
+  "Name (Z > A)",
+  "Release date (- > +)",
+  "Release date (+ > -)",
 ];
 
 const EACards = () => {
@@ -111,13 +111,13 @@ const EACards = () => {
 
   const sortedCards = [...cards].sort((a, b) => {
     switch (filters.orderBy) {
-      case "Name Z-A":
+      case "Name (Z > A)":
         return b.fullname.localeCompare(a.fullname);
-      case "ReleaseDate Recent → Old":
-        return new Date(b.release) - new Date(a.release);
-      case "ReleaseDate Old → Recent":
+      case "Release date (- > +)":
         return new Date(a.release) - new Date(b.release);
-      default: // "Name A-Z"
+      case "Release date (+ > -)":
+        return new Date(b.release) - new Date(a.release);
+      default: // "Name (A > Z)"
         return a.fullname.localeCompare(b.fullname);
     }
   });
