@@ -3,67 +3,113 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { MongoClient } from 'mongodb';
 
+// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-app.use(cors()); // Enable CORS for all routes
+// Enable CORS for all routes
+app.use(cors());
+// Parse JSON request bodies
+app.use(express.json());
 
-// your routes
-
-const uri = process.env.MONGODB_URI
+// MongoDB connection URI from environment variables
+const uri = process.env.MONGODB_URI;
+// Create a new MongoClient instance
 const client = new MongoClient(uri);
 
-async function fetchCollection(collectionName) {
-    await client.connect();
-    const documents = await client.db('EACards').collection(collectionName).find({}).toArray();
-    await client.close();
+// Variable to store the database instance
+let db;
+
+/**
+ * Connects to the MongoDB database.
+ * This function should be called once when the application starts.
+ */
+async function connectToDatabase() {
+    try {
+        await client.connect();
+        db = client.db('EACards'); // Assign the database instance to the global 'db' variable
+        console.log('Successfully connected to MongoDB!');
+    } catch (error) {
+        console.error('Failed to connect to MongoDB:', error);
+        // Exit the process if database connection fails
+        process.exit(1);
+    }
+}
+
+/**
+ * Fetches documents from a specified collection, optionally applying a filter.
+ * @param {string} collectionName - The name of the collection to fetch from.
+ * @param {object} [filter={}] - An optional filter object to apply to the query (e.g., { class: 'heroclass' }).
+ * @returns {Promise<Array>} A promise that resolves to an array of documents.
+ */
+async function fetchCollection(collectionName, filter = {}) {
+    // Ensure the database connection is established before querying
+    if (!db) {
+        throw new Error('Database not connected. Please call connectToDatabase first.');
+    }
+    // Access the specified collection and find documents matching the filter
+    const documents = await db.collection(collectionName).find(filter).toArray();
     return documents;
 }
 
-const fetchCards = () => fetchCollection('eacards');
-const fetchEquips = () => fetchCollection('eaequips');
-const fetchSkills = () => fetchCollection('easkills');
-
+// Route to check if the server is running
 app.get('/', (_req, res) => {
-    res.send('So vamos trabalhar com os endpoints /api/cards, /api/equips e /api/skills');
+    res.send('Welcome to the EACards API! Available endpoints with optional filters: /api/cards, /api/equips, /api/skills. Example: /api/cards?class=Warrior');
 });
 
-// endpoint to fetch cards
-app.get('/api/cards', async (_req, res) => {
+// Endpoint to fetch cards with optional filters
+app.get('/api/cards', async (req, res) => {
     try {
-        const cards = await fetchCards();
-        res.json(cards);
+        // Extract query parameters from the request to use as a filter
+        const filter = req.query;
+        const cards = await fetchCollection('eacards', filter);
+        res.json(cards); // Send the fetched cards as a JSON response
     } catch (error) {
         console.error('Error fetching cards:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 });
 
-// endpoint to fetch equipments
-app.get('/api/equips', async (_req, res) => {
+// Endpoint to fetch equipments with optional filters
+app.get('/api/equips', async (req, res) => {
     try {
-        const equips = await fetchEquips();
-        res.json(equips);
+        // Extract query parameters from the request to use as a filter
+        const filter = req.query;
+        const equips = await fetchCollection('eaequips', filter);
+        res.json(equips); // Send the fetched equipments as a JSON response
     } catch (error) {
         console.error('Error fetching equipments:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 });
 
-// endpoint to fetch skills
-app.get('/api/skills', async (_req, res) => {
+// Endpoint to fetch skills with optional filters
+app.get('/api/skills', async (req, res) => {
     try {
-        const skills = await fetchSkills();
-        res.json(skills);
+        // Extract query parameters from the request to use as a filter
+        const filter = req.query;
+        const skills = await fetchCollection('easkills', filter);
+        res.json(skills); // Send the fetched skills as a JSON response
     } catch (error) {
         console.error('Error fetching skills:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 });
 
-app.use(express.json());
+// Define the port, defaulting to 5000 if not specified in environment variables
+const PORT = process.env.PORT;
 
-console.log('Server is running on port 5000');
-app.listen(5000, () => {
-    console.log('Server is running on port 5000');
+// Start the server after successfully connecting to the database
+connectToDatabase().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+});
+
+// Handle graceful shutdown
+process.on('SIGINT', async () => {
+    console.log('Server shutting down...');
+    await client.close(); // Close the MongoDB connection
+    console.log('MongoDB connection closed.');
+    process.exit(0); // Exit the process
 });

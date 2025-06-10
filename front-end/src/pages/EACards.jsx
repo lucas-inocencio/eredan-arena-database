@@ -61,26 +61,71 @@ const RARITIES = [
   "Special",
   "Survival",
 ];
-
 const ORDER_BY = [
   "Name (A > Z)",
   "Name (Z > A)",
   "Release date (- > +)",
   "Release date (+ > -)",
 ];
+const LEVELS = [1, 2, 3];
 
+// Card component to manage its own state
+const Card = ({ card }) => {
+  // Each card now manages its own level state, defaulting to 3
+  const [currentLevel, setCurrentLevel] = useState(3);
+
+  // Determine the image source based on the card's internal level state
+  let imgSrc = card.imagelink; // Default to max level image
+  if (currentLevel === 1 && card.lvlone) imgSrc = card.lvlone;
+  else if (currentLevel === 2 && card.lvltwo) imgSrc = card.lvltwo;
+  else if (currentLevel === 3 && card.imagelink) imgSrc = card.imagelink;
+
+  return (
+    <div className="cardResult" key={card.id}>
+      {imgSrc ? (
+        <>
+          <img
+            className="cardImage"
+            src={imgSrc}
+            alt={card.fullname}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src =
+                "https://placehold.co/200x280/cccccc/333333?text=Image+Not+Found";
+            }}
+          />
+          <div className="levelButtons">
+            <p>Lvl</p>
+            {/* These buttons now only affect the state of this specific card instance */}
+            <button onClick={() => setCurrentLevel(1)}>1</button>
+            <button onClick={() => setCurrentLevel(2)}>2</button>
+            <button onClick={() => setCurrentLevel(3)}>3</button>
+          </div>
+        </>
+      ) : (
+        <p>No image available.</p>
+      )}
+      <h3>{card.fullname}</h3>
+    </div>
+  );
+};
+
+// Main EACards component
 const EACards = () => {
   const [filters, setFilters] = useState({
     guild: "All",
     class: "All",
     race: "All",
     rarity: "All",
-    orderBy: "Name",
+    orderBy: "Name (A > Z)",
+    level: 3,
     searchQuery: "",
   });
   const [cards, setCards] = useState([]);
+
   const handleChange = (e) =>
     setFilters({ ...filters, [e.target.name]: e.target.value });
+
   const renderSelect = (name, options) => (
     <label>
       {name.charAt(0).toUpperCase() + name.slice(1)}:
@@ -95,7 +140,15 @@ const EACards = () => {
   );
 
   useEffect(() => {
-    fetch(`https://eredan-arena-database.onrender.com/api/cards`)
+    const queryParams = new URLSearchParams();
+    if (filters.guild !== "All") queryParams.append("guild", filters.guild);
+    if (filters.class !== "All") queryParams.append("heroclass", filters.class);
+    if (filters.race !== "All") queryParams.append("race", filters.race);
+    if (filters.rarity !== "All") queryParams.append("rarity", filters.rarity);
+
+    const apiUrl = `http://localhost:5000/api/cards?${queryParams.toString()}`;
+
+    fetch(apiUrl)
       .then((response) => {
         if (
           response.ok &&
@@ -107,7 +160,7 @@ const EACards = () => {
       })
       .then(setCards)
       .catch(console.error);
-  }, []);
+  }, [filters]);
 
   const sortedCards = [...cards].sort((a, b) => {
     switch (filters.orderBy) {
@@ -117,42 +170,20 @@ const EACards = () => {
         return new Date(a.release) - new Date(b.release);
       case "Release date (+ > -)":
         return new Date(b.release) - new Date(a.release);
-      default: // "Name (A > Z)"
+      case "Name (A > Z)":
+      default:
         return a.fullname.localeCompare(b.fullname);
     }
   });
 
-  const filteredCards = sortedCards.filter((card) => {
-    const matchesGuild =
-      filters.guild === "All" || card.guild === filters.guild;
-    const matchesClass =
-      filters.class === "All" || card.heroclass === filters.class;
-    const matchesRace = filters.race === "All" || card.race === filters.race;
-    const matchesRarity =
-      filters.rarity === "All" || card.rarity === filters.rarity;
-    const matchesSearch =
+  const filteredCards = sortedCards.filter(
+    (card) =>
       card.fullname.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
-      card.skills.some((skill) =>
-        skill.toLowerCase().includes(filters.searchQuery.toLowerCase())
-      );
-
-    return (
-      matchesGuild &&
-      matchesClass &&
-      matchesRace &&
-      matchesRarity &&
-      matchesSearch
-    );
-  });
-
-  const [cardImageLevels, setCardImageLevels] = useState({});
-
-  const handleLevelClick = (cardId, level) => {
-    setCardImageLevels((prev) => ({
-      ...prev,
-      [cardId]: level,
-    }));
-  };
+      (card.skills &&
+        card.skills.some((skill) =>
+          skill.toLowerCase().includes(filters.searchQuery.toLowerCase())
+        ))
+  );
 
   return (
     <div className="EA">
@@ -173,49 +204,15 @@ const EACards = () => {
         {renderSelect("race", RACES)}
         {renderSelect("rarity", RARITIES)}
         {renderSelect("orderBy", ORDER_BY)}
+        {renderSelect("level", LEVELS)}
       </section>
       <h2>Card Results</h2>
       <section className="cardResults">
         {filteredCards.length === 0 ? (
           <div>No cards found.</div>
         ) : (
-          filteredCards.map((card) => {
-            let imgSrc = card.imagelink;
-            if (cardImageLevels[card.id] === 1 && card.lvlone)
-              imgSrc = card.lvlone;
-            if (cardImageLevels[card.id] === 2 && card.lvltwo)
-              imgSrc = card.lvltwo;
-            if (cardImageLevels[card.id] === 3 && card.imagelink)
-              imgSrc = card.imagelink;
-            return (
-              <div className="cardResult" key={card.id}>
-                {imgSrc ? (
-                  <>
-                    <img
-                      className="cardImage"
-                      src={imgSrc}
-                      alt={card.fullname}
-                    />
-                    <div className="levelButtons">
-                      <p>Lvl</p>
-                      <button onClick={() => handleLevelClick(card.id, 1)}>
-                        1
-                      </button>
-                      <button onClick={() => handleLevelClick(card.id, 2)}>
-                        2
-                      </button>
-                      <button onClick={() => handleLevelClick(card.id, 3)}>
-                        3
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <p>No image available.</p>
-                )}
-                <h3>{card.fullname}</h3>
-              </div>
-            );
-          })
+          // Render the new Card component for each card
+          filteredCards.map((card) => <Card key={card.id} card={card} />)
         )}
       </section>
     </div>
