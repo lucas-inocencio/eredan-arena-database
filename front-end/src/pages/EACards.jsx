@@ -146,7 +146,7 @@ const EACards = () => {
     if (filters.race !== "All") queryParams.append("race", filters.race);
     if (filters.rarity !== "All") queryParams.append("rarity", filters.rarity);
 
-    const apiUrl = `http://localhost:5000/api/cards?${queryParams.toString()}`;
+    const apiUrl = `https://eredan-arena-database.onrender.com/api/cards?${queryParams.toString()}`;
 
     fetch(apiUrl)
       .then((response) => {

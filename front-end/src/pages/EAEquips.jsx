@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const POSITIONS = ["All", "1st / Attacker", "2nd / Defender"];
-//const LEVELS = ["All", "1", "2", "3"];
 const RARITIES = ["All", "Common", "Epic", "Legendary", "Rare"];
 const ORDER_BY = ["Name", "ReleaseDate"];
 
