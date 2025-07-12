@@ -69,10 +69,14 @@ const ORDER_BY = [
 ];
 const LEVELS = [1, 2, 3];
 
-// Card component to manage its own state
-const Card = ({ card }) => {
-  // Each card now manages its own level state, defaulting to 3
-  const [currentLevel, setCurrentLevel] = useState(3);
+// Card component to manage its own state, now also aware of a global level
+const Card = ({ card, globalLevel }) => {
+  const [currentLevel, setCurrentLevel] = useState(globalLevel);
+
+  // Effect to update the card's level when the global level changes
+  useEffect(() => {
+    setCurrentLevel(globalLevel);
+  }, [globalLevel]);
 
   // Determine the image source based on the card's internal level state
   let imgSrc = card.imagelink; // Default to max level image
@@ -118,18 +122,28 @@ const EACards = () => {
     race: "All",
     rarity: "All",
     orderBy: "Name (A > Z)",
-    level: 3,
     searchQuery: "",
   });
+  const [globalLevel, setGlobalLevel] = useState(3); // State for the global level
   const [cards, setCards] = useState([]);
 
-  const handleChange = (e) =>
-    setFilters({ ...filters, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "level") {
+      setGlobalLevel(parseInt(value, 10));
+    } else {
+      setFilters({ ...filters, [name]: value });
+    }
+  };
 
   const renderSelect = (name, options) => (
     <label>
       {name.charAt(0).toUpperCase() + name.slice(1)}:
-      <select name={name} value={filters[name]} onChange={handleChange}>
+      <select
+        name={name}
+        value={name === "level" ? globalLevel : filters[name]}
+        onChange={handleChange}
+      >
         {options.map((opt) => (
           <option key={opt} value={opt}>
             {opt}
@@ -211,8 +225,10 @@ const EACards = () => {
         {filteredCards.length === 0 ? (
           <div>No cards found.</div>
         ) : (
-          // Render the new Card component for each card
-          filteredCards.map((card) => <Card key={card.id} card={card} />)
+          // Render the new Card component for each card, passing the globalLevel
+          filteredCards.map((card) => (
+            <Card key={card.id} card={card} globalLevel={globalLevel} />
+          ))
         )}
       </section>
     </div>
